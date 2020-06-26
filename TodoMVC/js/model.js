@@ -1,9 +1,10 @@
 window.model = {
   data: {
     items: [
-      // {msg:'', completed: false}
+      // {msg:'', date:'',completed: false}
     ],
     msg: '',
+    date:'',
     filter: 'All'
   },
   TOKEN: 'Todo'

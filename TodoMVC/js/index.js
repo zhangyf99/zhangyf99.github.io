@@ -21,6 +21,7 @@ window.onload = function () {
         var deleteMus = $('#deleteMus');
         var addMus = $('#addMus');
         new Hammer($('#addButton')).on('tap', addTodo);
+        //new Hammer($('#searchButton')).on('tap', search);
         new Hammer($('#finishAll')).on('tap', finishAll);
         new Hammer($('#unfinishAll')).on('tap', unfinishAll);
         new Hammer($('#deleteFinished')).on('tap', deleteFinished);
@@ -44,6 +45,7 @@ function addTodo() {
     var data = model.data;
     //console.log('add');
     data.msg = $('#newTodo').value;
+    data.date=$('#newTodoDate').value;
     if (data.msg == '') {
         alert("the input todo is empty!");
         return;
@@ -51,12 +53,23 @@ function addTodo() {
     data.items.push(
         {
             msg: data.msg,
+            date:data.date,
             completed: false
         }
     )
     update();
     addMus.play();
 }
+
+/*function search(){
+    $('#search').classList.add('focused');
+    var keyword=$('#searchContent').value;
+    if(keyword==''){
+        alert("the input keyword is empty!");
+        return;
+    }
+    
+}*/
 
 //全部完成
 function finishAll() {
@@ -65,6 +78,7 @@ function finishAll() {
         items[i].completed = true;
     }
     update();
+    completeMus.play();
 }
 
 //全部取消
@@ -87,6 +101,7 @@ function deleteFinished() {
         }
     }
     update();
+    deleteMus.play();
 }
 
 //过滤
@@ -130,10 +145,19 @@ function update() {
             }
             /*item.innerHTML='<div class="view">'+'<button class="itemCheck">'+checkSvg+'</button>'+'<div class="todoItem">'+items[i].msg+'</div>'+'<button class="deleteSin">'+' <svg class="icon" aria-hidden="true">'+
             '<use xlink:href="#icon-shanchu"></use>'+'</svg>'+'</button>'+'</div>';*/
-            item.innerHTML = '<div class="view">' + '<button class="itemCheck">' + checkSvg + '</button>' + '<input type="text" class="todoItem" disabled>' + '<button class="deleteSin">' + ' <svg class="icon" aria-hidden="true">' +
+            var timeTag='';
+            if(items[i].date)
+            {
+                timeTag='<time>'+'</time>';
+            }
+            item.innerHTML = '<div class="view target topIn">' + '<button class="itemCheck">' + checkSvg + '</button>' + '<input type="text" class="todoItem" disabled>' + timeTag +'<button class="deleteSin">' + ' <svg class="icon" aria-hidden="true">' +
                 '<use xlink:href="#icon-shanchu"></use>' + '</svg>' + '</button>' + '</div>';
             item.querySelector('.view .todoItem').value = items[i].msg;
-
+            if(items[i].date)
+            {
+                //item.querySelector('.view time').datetime = items[i].date;
+                item.querySelector('.view time').innerHTML = items[i].date;
+            }
             //绑定编辑
             let tempItem = item;
             let inputItem = item.querySelector('.view .todoItem');

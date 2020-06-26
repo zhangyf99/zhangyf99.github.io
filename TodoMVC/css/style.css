@@ -48,13 +48,18 @@ h1{
     border: none;
     outline: none;
     height: 40px;
-    width: 68%;
+    width: 46%;
     padding: 0 5%;
     margin:auto;
     border-radius: 10px;
     font-size: 16px;
     color: black;
     font-family: "PingFangSC";
+}
+
+#newTodoDate{
+    width: 14%;
+    margin-right: 2%;
 }
 
 #addButton{
@@ -82,10 +87,11 @@ h1{
     position: relative;
     top: -20px;
     color: gray;
-    font-size: 14px;
+    font-size: 16px;
 }
 #filter li{
     display: inline;
+    margin-right: 5px;
 }
 
 #filter .selected{
@@ -112,7 +118,7 @@ h1{
 }
 
 .view{
-   display: inherit;
+    display: inherit;
     background-color:white;
     box-shadow: 3px 3px #cccccc;
     width: 100%;
@@ -121,6 +127,19 @@ h1{
     padding: 0 5px;
     border-radius: 5px;
 }
+
+/*从上飞入*/
+@keyframes topIn {
+    from { transform: translateY(-10px);
+        opacity: 0;  }
+    to { transform: translateY(0px);
+        opacity: 1; }
+}
+  
+.topIn {
+    animation: topIn 1s ease;
+}
+  
 
 .deleteSin{
     background: none;
@@ -139,7 +158,7 @@ h1{
 }
 .todoItem{
     margin: auto 5px;
-    width: 80%;
+    width: 70%;
     font-size: 1em;
     background:none;  
 	outline:none;  
@@ -155,6 +174,15 @@ h1{
     background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
     color: white;
 
+}
+time{
+    color: gray;
+    width: 40%;
+    font-size: 0.6em;
+    margin: auto;
+}
+.completed time{
+    color: white;
 }
 .completed button{
     color: white;
@@ -175,11 +203,8 @@ input:disabled{
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* 强制flex item不换行，沿着同一行堆叠 */
-    flex-wrap: nowrap;
-    /* flex item在主轴上的对齐方式，这里定义左对齐 */
+    /*flex-wrap: nowrap;*/
     justify-content:center;
-    /* 定义交叉轴对其方式 */
     align-items: flex-start;
    
 }
