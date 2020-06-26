@@ -1,0 +1,74 @@
+<!--
+    1750219 Yufan Zhang
+    This assignment is a realization for to do list.
+    FIle Content:
+    index.html, the web page for to do do
+    style.css, the style sheet for index.html
+    .js, the JavaScript code for index.html 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+    <meta name="format-detection" content="telephone=no,emaol=no;">
+    <title>Todo</title>
+    <link href="./css/style.css" type="text/css" rel="stylesheet" />
+    <script src="./js/iconfont.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/provider.js"></script>
+    <script src="./js/hammer.min.js"></script>
+    <script src="./js/index.js"></script>
+
+</head>
+
+<body>
+    <!--audio-->
+    <audio id="completeMus" src="./audio/complete.mp3" preload="auto">
+        Your browser doesn't support audio tag!
+    </audio>
+    <audio id="deleteMus" src="./audio/delete.mp3" preload="auto">
+        Your browser doesn't support audio tag!
+    </audio>
+    <audio id="addMus" src="./audio/add.mp3" preload="auto">
+        Your browser doesn't support audio tag!
+    </audio>
+    <!--title-->
+    <div id="header">
+        <h1>Todo</h1>
+    </div>
+    <!--input new todo here-->
+    <div id="input">
+        <input id="newTodo" placeholder="add todo now!" autofocus>
+        <button id="addButton">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-zengjia-cuxiantiao-fill"></use>
+            </svg>
+        </button>
+    </div>
+    <!--the main section-->
+    <div id="main">
+        <!--filter-->
+        <div id="filter">
+            <ul>
+                <li id="AllF" class="selected">All</li>
+                <li id="CompletedF">Completed</li>
+                <li id="ActiveF">Active</li>
+            </ul>
+        </div>
+        <!--show the todo list-->
+        <div id="list">
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <!--control button-->
+    <div id="control">
+        <button id="finishAll">finish all</button>
+        <button id="unfinishAll">unfinish all</button>
+        <button id="deleteFinished">delete finished</button>
+    </div>
+</body>
+
+</html>
