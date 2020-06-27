@@ -48,7 +48,7 @@ h1{
     border: none;
     outline: none;
     height: 40px;
-    width: 46%;
+    width: 28%;
     padding: 0 5%;
     margin:auto;
     border-radius: 10px;
@@ -58,12 +58,12 @@ h1{
 }
 
 #newTodoDate{
-    width: 14%;
+    width: 44%;
     margin-right: 2%;
 }
 
 #addButton{
-    width: 16%;
+    width: 10%;
     height: 40px;
     margin: 0;
     padding: 0;
@@ -199,6 +199,7 @@ input:disabled{
 .editing .todoItem{
     border:2px solid white;
 }
+
 #control{
     width: 100%;
     display: flex;
