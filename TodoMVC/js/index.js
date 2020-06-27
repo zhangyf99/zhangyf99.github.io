@@ -57,6 +57,8 @@ function addTodo() {
             completed: false
         }
     )
+    $('#newTodo').value = '';
+    $('#newTodoDate').value = '';
     update();
     addMus.play();
 }
@@ -126,7 +128,7 @@ function update() {
     var items = data.items;
     var list = $('#list ul');
     list.innerHTML = '';
-    $('#newTodo').value = '';
+    //$('#newTodo').value = '';
     var checkedSvg = '<svg class="icon" aria-hidden="true">' + '<use xlink:href="#icon-choosehandle"></use>' + '</svg>';
     var uncheckSvg = '<svg class="icon" aria-hidden="true">' + '<use xlink:href="#icon-weigouxuan"></use>' + '</svg>';
     //var checkSvg=uncheckSvg;
